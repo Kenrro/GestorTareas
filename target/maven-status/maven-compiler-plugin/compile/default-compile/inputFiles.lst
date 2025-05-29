@@ -1,1 +1,8 @@
-D:\WordSpaceNuevoJva\PruebaMaven\src\main\java\com\mycompany\pruebamaven\PruebaMaven.java
+C:\Users\kenrr\Documents\NetBeansProjects\GestorTareas\src\main\java\com\mycompany\gestortareas\GestorTareas.java
+C:\Users\kenrr\Documents\NetBeansProjects\GestorTareas\src\main\java\com\mycompany\gestortareas\LOGIC\Tarea.java
+C:\Users\kenrr\Documents\NetBeansProjects\GestorTareas\src\main\java\com\mycompany\gestortareas\LOGIC\Usuario.java
+C:\Users\kenrr\Documents\NetBeansProjects\GestorTareas\src\main\java\com\mycompany\gestortareas\PERSISTENSE\ConexionMySql.java
+C:\Users\kenrr\Documents\NetBeansProjects\GestorTareas\src\main\java\com\mycompany\gestortareas\PERSISTENSE\ITareaDAO.java
+C:\Users\kenrr\Documents\NetBeansProjects\GestorTareas\src\main\java\com\mycompany\gestortareas\PERSISTENSE\IUsuarioDAO.java
+C:\Users\kenrr\Documents\NetBeansProjects\GestorTareas\src\main\java\com\mycompany\gestortareas\PERSISTENSE\TareaDaoImplementSql.java
+C:\Users\kenrr\Documents\NetBeansProjects\GestorTareas\src\main\java\com\mycompany\gestortareas\PERSISTENSE\UsuarioDaoImplementSql.java
