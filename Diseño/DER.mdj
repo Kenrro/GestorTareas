@@ -1,0 +1,449 @@
+{
+	"_type": "Project",
+	"_id": "AAAAAAFF+h6SjaM2Hec=",
+	"name": "Untitled",
+	"ownedElements": [
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAFF+qBWK6M3Z8Y=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Model",
+			"ownedElements": [
+				{
+					"_type": "UMLClassDiagram",
+					"_id": "AAAAAAFF+qBtyKM79qY=",
+					"_parent": {
+						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
+					},
+					"name": "Main",
+					"defaultDiagram": true
+				}
+			]
+		},
+		{
+			"_type": "ERDDataModel",
+			"_id": "AAAAAAGXFasXaLviE7Q=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Data Model1",
+			"ownedElements": [
+				{
+					"_type": "ERDDiagram",
+					"_id": "AAAAAAGXFasXabvj9Sw=",
+					"_parent": {
+						"$ref": "AAAAAAGXFasXaLviE7Q="
+					},
+					"name": "ERDDiagram1",
+					"ownedViews": [
+						{
+							"_type": "ERDEntityView",
+							"_id": "AAAAAAGXFasjOrvpuoQ=",
+							"_parent": {
+								"$ref": "AAAAAAGXFasXabvj9Sw="
+							},
+							"model": {
+								"$ref": "AAAAAAGXFasjOrvn43s="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAGXFasjO7vqP84=",
+									"_parent": {
+										"$ref": "AAAAAAGXFasjOrvpuoQ="
+									},
+									"font": "Arial;13;1",
+									"parentStyle": true,
+									"left": 416,
+									"top": 341,
+									"width": 112,
+									"height": 13,
+									"text": "Usuario"
+								},
+								{
+									"_type": "ERDColumnCompartmentView",
+									"_id": "AAAAAAGXFasjO7vrDYM=",
+									"_parent": {
+										"$ref": "AAAAAAGXFasjOrvpuoQ="
+									},
+									"model": {
+										"$ref": "AAAAAAGXFasjOrvn43s="
+									},
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 416,
+									"top": 359,
+									"width": 112,
+									"height": 10
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 416,
+							"top": 336,
+							"width": 112,
+							"height": 72,
+							"nameLabel": {
+								"$ref": "AAAAAAGXFasjO7vqP84="
+							},
+							"columnCompartment": {
+								"$ref": "AAAAAAGXFasjO7vrDYM="
+							}
+						},
+						{
+							"_type": "ERDEntityView",
+							"_id": "AAAAAAGXFatC17v2nCo=",
+							"_parent": {
+								"$ref": "AAAAAAGXFasXabvj9Sw="
+							},
+							"model": {
+								"$ref": "AAAAAAGXFatC17v04VA="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAGXFatC17v3RVE=",
+									"_parent": {
+										"$ref": "AAAAAAGXFatC17v2nCo="
+									},
+									"font": "Arial;13;1",
+									"parentStyle": true,
+									"left": 888,
+									"top": 325,
+									"width": 120,
+									"height": 13,
+									"text": "Mensajes"
+								},
+								{
+									"_type": "ERDColumnCompartmentView",
+									"_id": "AAAAAAGXFatC17v4WPg=",
+									"_parent": {
+										"$ref": "AAAAAAGXFatC17v2nCo="
+									},
+									"model": {
+										"$ref": "AAAAAAGXFatC17v04VA="
+									},
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 888,
+									"top": 343,
+									"width": 120,
+									"height": 10
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 888,
+							"top": 320,
+							"width": 120,
+							"height": 72,
+							"nameLabel": {
+								"$ref": "AAAAAAGXFatC17v3RVE="
+							},
+							"columnCompartment": {
+								"$ref": "AAAAAAGXFatC17v4WPg="
+							}
+						},
+						{
+							"_type": "EllipseView",
+							"_id": "AAAAAAGXFauRGLwCUYE=",
+							"_parent": {
+								"$ref": "AAAAAAGXFasXabvj9Sw="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 408,
+							"top": 456,
+							"width": 50,
+							"height": 32
+						},
+						{
+							"_type": "EllipseView",
+							"_id": "AAAAAAGXFavlc7wPXuk=",
+							"_parent": {
+								"$ref": "AAAAAAGXFasXabvj9Sw="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 408,
+							"top": 272,
+							"width": 56,
+							"height": 32
+						},
+						{
+							"_type": "UMLTextView",
+							"_id": "AAAAAAGXFawlnbwUZmg=",
+							"_parent": {
+								"$ref": "AAAAAAGXFasXabvj9Sw="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 416,
+							"top": 456,
+							"width": 60,
+							"height": 25,
+							"text": "Id"
+						},
+						{
+							"_type": "UMLTextView",
+							"_id": "AAAAAAGXFayl4rwa9Y0=",
+							"_parent": {
+								"$ref": "AAAAAAGXFasXabvj9Sw="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 408,
+							"top": 272,
+							"width": 56.236328125,
+							"height": 25,
+							"text": "Nombre"
+						},
+						{
+							"_type": "EllipseView",
+							"_id": "AAAAAAGXFa0vR7wiOJ0=",
+							"_parent": {
+								"$ref": "AAAAAAGXFasXabvj9Sw="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 280,
+							"top": 344,
+							"width": 120,
+							"height": 48
+						},
+						{
+							"_type": "UMLTextView",
+							"_id": "AAAAAAGXFa1lErwnIlU=",
+							"_parent": {
+								"$ref": "AAAAAAGXFasXabvj9Sw="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 288,
+							"top": 360,
+							"width": 108.28076171875,
+							"height": 25,
+							"text": "Lista<mensajes>"
+						},
+						{
+							"_type": "ERDRelationshipView",
+							"_id": "AAAAAAGXFa5PG7w1+XI=",
+							"_parent": {
+								"$ref": "AAAAAAGXFasXabvj9Sw="
+							},
+							"model": {
+								"$ref": "AAAAAAGXFa5PG7wxQ+o="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGXFa5PHLw2txQ=",
+									"_parent": {
+										"$ref": "AAAAAAGXFa5PG7w1+XI="
+									},
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 665,
+									"top": 349,
+									"width": 86.94384765625,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAGXFa5PG7w1+XI="
+									},
+									"edgePosition": 1,
+									"text": "Tiene minsajes"
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGXFa5PHLw3AAY=",
+									"_parent": {
+										"$ref": "AAAAAAGXFa5PG7w1+XI="
+									},
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 553,
+									"top": 349,
+									"height": 13,
+									"alpha": 0.5235987755982988,
+									"distance": 30,
+									"hostEdge": {
+										"$ref": "AAAAAAGXFa5PG7w1+XI="
+									},
+									"edgePosition": 2
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAGXFa5PHLw4y8s=",
+									"_parent": {
+										"$ref": "AAAAAAGXFa5PG7w1+XI="
+									},
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 862,
+									"top": 349,
+									"height": 13,
+									"alpha": -0.5235987755982988,
+									"distance": 30,
+									"hostEdge": {
+										"$ref": "AAAAAAGXFa5PG7w1+XI="
+									}
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"head": {
+								"$ref": "AAAAAAGXFatC17v2nCo="
+							},
+							"tail": {
+								"$ref": "AAAAAAGXFasjOrvpuoQ="
+							},
+							"lineStyle": 2,
+							"points": "528:370;888:370",
+							"nameLabel": {
+								"$ref": "AAAAAAGXFa5PHLw2txQ="
+							},
+							"tailNameLabel": {
+								"$ref": "AAAAAAGXFa5PHLw3AAY="
+							},
+							"headNameLabel": {
+								"$ref": "AAAAAAGXFa5PHLw4y8s="
+							}
+						},
+						{
+							"_type": "EllipseView",
+							"_id": "AAAAAAGXFa6skLxGNVc=",
+							"_parent": {
+								"$ref": "AAAAAAGXFasXabvj9Sw="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 912,
+							"top": 224,
+							"width": 72,
+							"height": 40
+						},
+						{
+							"_type": "UMLTextView",
+							"_id": "AAAAAAGXFa8us7xK0LE=",
+							"_parent": {
+								"$ref": "AAAAAAGXFasXabvj9Sw="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 928,
+							"top": 232,
+							"width": 60,
+							"height": 25,
+							"text": "id"
+						},
+						{
+							"_type": "EllipseView",
+							"_id": "AAAAAAGXFa+KLLxQlPk=",
+							"_parent": {
+								"$ref": "AAAAAAGXFasXabvj9Sw="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 1048,
+							"top": 336,
+							"width": 80,
+							"height": 50
+						},
+						{
+							"_type": "UMLTextView",
+							"_id": "AAAAAAGXFa+iObxTllQ=",
+							"_parent": {
+								"$ref": "AAAAAAGXFasXabvj9Sw="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 1048,
+							"top": 352,
+							"width": 77.91357421875,
+							"height": 25,
+							"text": "Descripcion"
+						},
+						{
+							"_type": "EllipseView",
+							"_id": "AAAAAAGXFbA+hbxdAgc=",
+							"_parent": {
+								"$ref": "AAAAAAGXFasXabvj9Sw="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 904,
+							"top": 432,
+							"width": 64,
+							"height": 32
+						},
+						{
+							"_type": "UMLTextView",
+							"_id": "AAAAAAGXFbBoOLxjHHI=",
+							"_parent": {
+								"$ref": "AAAAAAGXFasXabvj9Sw="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 912,
+							"top": 440,
+							"width": 60,
+							"height": 25,
+							"text": "Estado"
+						}
+					]
+				},
+				{
+					"_type": "ERDEntity",
+					"_id": "AAAAAAGXFasjOrvn43s=",
+					"_parent": {
+						"$ref": "AAAAAAGXFasXaLviE7Q="
+					},
+					"name": "Usuario",
+					"ownedElements": [
+						{
+							"_type": "ERDRelationship",
+							"_id": "AAAAAAGXFa5PG7wxQ+o=",
+							"_parent": {
+								"$ref": "AAAAAAGXFasjOrvn43s="
+							},
+							"name": "Tiene minsajes",
+							"end1": {
+								"_type": "ERDRelationshipEnd",
+								"_id": "AAAAAAGXFa5PG7wyOzc=",
+								"_parent": {
+									"$ref": "AAAAAAGXFa5PG7wxQ+o="
+								},
+								"reference": {
+									"$ref": "AAAAAAGXFasjOrvn43s="
+								}
+							},
+							"end2": {
+								"_type": "ERDRelationshipEnd",
+								"_id": "AAAAAAGXFa5PG7wzZY4=",
+								"_parent": {
+									"$ref": "AAAAAAGXFa5PG7wxQ+o="
+								},
+								"reference": {
+									"$ref": "AAAAAAGXFatC17v04VA="
+								},
+								"cardinality": "0..*"
+							}
+						}
+					]
+				},
+				{
+					"_type": "ERDEntity",
+					"_id": "AAAAAAGXFatC17v04VA=",
+					"_parent": {
+						"$ref": "AAAAAAGXFasXaLviE7Q="
+					},
+					"name": "Mensajes"
+				}
+			]
+		}
+	]
+}
