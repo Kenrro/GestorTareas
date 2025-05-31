@@ -9,6 +9,7 @@ import com.mycompany.gestortareas.PERSISTENSE.ITareaDAO;
 import com.mycompany.gestortareas.PERSISTENSE.IUsuarioDAO;
 import com.mycompany.gestortareas.PERSISTENSE.TareaDaoImplementSql;
 import com.mycompany.gestortareas.PERSISTENSE.UsuarioDaoImplementSql;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,6 +22,9 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
+        panelCargar.setVisible(false);
+        panelCrear.setVisible(false);
+        panelVacio.setVisible(true);
     }
     public void cargarTareasUsuario(int id) {
         usuario.setTareas(daot.listarTarea(id));
@@ -53,16 +57,25 @@ public class Inicio extends javax.swing.JFrame {
         BverTareas = new javax.swing.JButton();
         BcrearTarea = new javax.swing.JButton();
         panelTarjeta = new javax.swing.JPanel();
+        panelCrear = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TcrearTarea = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
+        Bcrear = new javax.swing.JButton();
         panelCargar = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tdescripcion = new javax.swing.JTextArea();
         Testado = new javax.swing.JTextField();
         BotonTareaAnterior = new javax.swing.JButton();
         BotonTareaSiguiente = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        panelVacio = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelPrincipal.setBackground(new java.awt.Color(0, 153, 153));
+        panelPrincipal.setBackground(new java.awt.Color(0, 0, 0));
+
+        jPanel2.setBackground(new java.awt.Color(0, 153, 255));
 
         jLabel1.setText("Nombre");
 
@@ -76,8 +89,18 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         BverTareas.setText("Ver");
+        BverTareas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                BverTareasMousePressed(evt);
+            }
+        });
 
         BcrearTarea.setText("Crear");
+        BcrearTarea.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                BcrearTareaMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -100,7 +123,7 @@ public class Inicio extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(Tcontraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Bcargar)
                         .addGap(15, 15, 15))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -128,6 +151,50 @@ public class Inicio extends javax.swing.JFrame {
         panelTarjeta.setBackground(new java.awt.Color(51, 51, 255));
         panelTarjeta.setLayout(new java.awt.CardLayout());
 
+        panelCrear.setBackground(new java.awt.Color(255, 51, 51));
+
+        TcrearTarea.setColumns(20);
+        TcrearTarea.setRows(5);
+        jScrollPane2.setViewportView(TcrearTarea);
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 255, 255));
+        jLabel3.setText("Crear nueva tarea");
+
+        Bcrear.setText("Crear");
+        Bcrear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                BcrearMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelCrearLayout = new javax.swing.GroupLayout(panelCrear);
+        panelCrear.setLayout(panelCrearLayout);
+        panelCrearLayout.setHorizontalGroup(
+            panelCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCrearLayout.createSequentialGroup()
+                .addGap(141, 141, 141)
+                .addGroup(panelCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Bcrear)
+                    .addGroup(panelCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel3)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(155, Short.MAX_VALUE))
+        );
+        panelCrearLayout.setVerticalGroup(
+            panelCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCrearLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel3)
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Bcrear)
+                .addContainerGap(75, Short.MAX_VALUE))
+        );
+
+        panelTarjeta.add(panelCrear, "card3");
+
         panelCargar.setBackground(new java.awt.Color(204, 255, 204));
 
         Tdescripcion.setColumns(20);
@@ -150,40 +217,66 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Cambiar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton1MousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelCargarLayout = new javax.swing.GroupLayout(panelCargar);
         panelCargar.setLayout(panelCargarLayout);
         panelCargarLayout.setHorizontalGroup(
             panelCargarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCargarLayout.createSequentialGroup()
-                .addGroup(panelCargarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelCargarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelCargarLayout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCargarLayout.createSequentialGroup()
-                        .addContainerGap()
+                    .addGroup(panelCargarLayout.createSequentialGroup()
+                        .addGap(125, 125, 125)
                         .addComponent(BotonTareaAnterior)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(panelCargarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BotonTareaSiguiente)
-                    .addComponent(Testado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(Testado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
         panelCargarLayout.setVerticalGroup(
             panelCargarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCargarLayout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addGroup(panelCargarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Testado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelCargarLayout.createSequentialGroup()
+                        .addComponent(Testado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(57, 57, 57)
                 .addGroup(panelCargarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonTareaAnterior)
                     .addComponent(BotonTareaSiguiente))
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         panelTarjeta.add(panelCargar, "card2");
+
+        panelVacio.setBackground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout panelVacioLayout = new javax.swing.GroupLayout(panelVacio);
+        panelVacio.setLayout(panelVacioLayout);
+        panelVacioLayout.setHorizontalGroup(
+            panelVacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 672, Short.MAX_VALUE)
+        );
+        panelVacioLayout.setVerticalGroup(
+            panelVacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 371, Short.MAX_VALUE)
+        );
+
+        panelTarjeta.add(panelVacio, "card4");
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);
@@ -196,8 +289,8 @@ public class Inicio extends javax.swing.JFrame {
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPrincipalLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(panelTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -220,7 +313,8 @@ public class Inicio extends javax.swing.JFrame {
             if (usuario!=null) {
                 Tconfirmacion.setText(String.valueOf(usuario.getId()));
                 cargarTareasUsuario(usuario.getId());
-                panelCargar.setVisible(false);
+                panelCargar.setVisible(true);
+                panelCrear.setVisible(false);
             }
         }
     }//GEN-LAST:event_BcargarMousePressed
@@ -240,6 +334,34 @@ public class Inicio extends javax.swing.JFrame {
         
     }//GEN-LAST:event_BotonTareaSiguienteMousePressed
 
+    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+        daot.actualizarTarea(usuario.getTareas().get(contador).getId());
+        usuario.getTareas().get(contador).setEstado(!usuario.getTareas().get(contador).getEstado());
+        iniciarTarea();
+    }//GEN-LAST:event_jButton1MousePressed
+
+    private void BcrearMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BcrearMousePressed
+        if (TcrearTarea.getText()!="") {
+            daot.crearTarea(usuario.getId(), TcrearTarea.getText());
+            JOptionPane.showMessageDialog(null, "Agregado");
+        }
+    }//GEN-LAST:event_BcrearMousePressed
+
+    private void BverTareasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BverTareasMousePressed
+        if (usuario!=null) {
+            panelCargar.setVisible(true);
+        panelCrear.setVisible(false);
+        cargarTareasUsuario(usuario.getId());
+        }
+    }//GEN-LAST:event_BverTareasMousePressed
+
+    private void BcrearTareaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BcrearTareaMousePressed
+        if (usuario!=null) {
+            panelCargar.setVisible(false);
+            panelCrear.setVisible(true);
+        }
+    }//GEN-LAST:event_BcrearTareaMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -249,23 +371,31 @@ public class Inicio extends javax.swing.JFrame {
     private IUsuarioDAO  dao = new UsuarioDaoImplementSql();
     private ITareaDAO daot = new TareaDaoImplementSql();
     private int contador = 0;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Bcargar;
+    private javax.swing.JButton Bcrear;
     private javax.swing.JButton BcrearTarea;
     private javax.swing.JButton BotonTareaAnterior;
     private javax.swing.JButton BotonTareaSiguiente;
     private javax.swing.JButton BverTareas;
     private javax.swing.JTextField Tconfirmacion;
     private javax.swing.JTextField Tcontraseña;
+    private javax.swing.JTextArea TcrearTarea;
     private javax.swing.JTextArea Tdescripcion;
     private javax.swing.JTextField Testado;
     private javax.swing.JTextField Tnombre;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel panelCargar;
+    private javax.swing.JPanel panelCrear;
     private javax.swing.JPanel panelPrincipal;
     private javax.swing.JPanel panelTarjeta;
+    private javax.swing.JPanel panelVacio;
     // End of variables declaration//GEN-END:variables
 }
