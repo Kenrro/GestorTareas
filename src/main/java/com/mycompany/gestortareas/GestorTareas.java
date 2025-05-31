@@ -26,7 +26,7 @@ public class GestorTareas {
         ITareaDAO daot = new TareaDaoImplementSql();
         //daot.crearTarea(2, "Miguel es una fufurufa");
         Usuario user = dao.leerUsuario(2);
-        user.setTareas(daot.listarTarea(1));
+        user.setTareas(daot.listarTarea(2));
         if(user.getTareas().isEmpty()){
             System.out.println("Sin tareas");
         }else{

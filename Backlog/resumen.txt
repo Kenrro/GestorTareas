@@ -1,0 +1,9 @@
+Analisis:
+Aplicación para la gestion de tareas, permite crear un usuario, y a partir de el crear tareas, esto no permite tener nuestras propias tareas
+
+Llevamos: Conexión con mysql, con dos tablas una, estamos implementando patron dao, una interfaz para los mensajes y otra para los
+usuarios.
+
+Necesitamos:
+
++ 

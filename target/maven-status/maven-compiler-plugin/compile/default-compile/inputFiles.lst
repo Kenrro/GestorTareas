@@ -1,8 +1,8 @@
-C:\Users\kenrr\Documents\NetBeansProjects\GestorTareas\src\main\java\com\mycompany\gestortareas\GestorTareas.java
-C:\Users\kenrr\Documents\NetBeansProjects\GestorTareas\src\main\java\com\mycompany\gestortareas\LOGIC\Tarea.java
-C:\Users\kenrr\Documents\NetBeansProjects\GestorTareas\src\main\java\com\mycompany\gestortareas\LOGIC\Usuario.java
-C:\Users\kenrr\Documents\NetBeansProjects\GestorTareas\src\main\java\com\mycompany\gestortareas\PERSISTENSE\ConexionMySql.java
-C:\Users\kenrr\Documents\NetBeansProjects\GestorTareas\src\main\java\com\mycompany\gestortareas\PERSISTENSE\ITareaDAO.java
-C:\Users\kenrr\Documents\NetBeansProjects\GestorTareas\src\main\java\com\mycompany\gestortareas\PERSISTENSE\IUsuarioDAO.java
-C:\Users\kenrr\Documents\NetBeansProjects\GestorTareas\src\main\java\com\mycompany\gestortareas\PERSISTENSE\TareaDaoImplementSql.java
-C:\Users\kenrr\Documents\NetBeansProjects\GestorTareas\src\main\java\com\mycompany\gestortareas\PERSISTENSE\UsuarioDaoImplementSql.java
+D:\WordSpaceNuevoJva\RepoTareas\src\main\java\com\mycompany\gestortareas\GestorTareas.java
+D:\WordSpaceNuevoJva\RepoTareas\src\main\java\com\mycompany\gestortareas\LOGIC\Tarea.java
+D:\WordSpaceNuevoJva\RepoTareas\src\main\java\com\mycompany\gestortareas\LOGIC\Usuario.java
+D:\WordSpaceNuevoJva\RepoTareas\src\main\java\com\mycompany\gestortareas\PERSISTENSE\ConexionMySql.java
+D:\WordSpaceNuevoJva\RepoTareas\src\main\java\com\mycompany\gestortareas\PERSISTENSE\ITareaDAO.java
+D:\WordSpaceNuevoJva\RepoTareas\src\main\java\com\mycompany\gestortareas\PERSISTENSE\IUsuarioDAO.java
+D:\WordSpaceNuevoJva\RepoTareas\src\main\java\com\mycompany\gestortareas\PERSISTENSE\TareaDaoImplementSql.java
+D:\WordSpaceNuevoJva\RepoTareas\src\main\java\com\mycompany\gestortareas\PERSISTENSE\UsuarioDaoImplementSql.java

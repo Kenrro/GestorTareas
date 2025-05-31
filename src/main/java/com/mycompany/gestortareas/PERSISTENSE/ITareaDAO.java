@@ -13,9 +13,9 @@ import java.util.List;
  */
 public interface ITareaDAO {
     
-    public void crearTarea(int id_usuario, String descripcion);
+    public boolean crearTarea(int id_usuario, String descripcion);
     public List<Tarea> listarTarea(int id_usuario);
-    public void eliminarTarea(int id);
-    public void actualizarTarea(int id);
+    public boolean eliminarTarea(int id);
+    public boolean actualizarTarea(int id);
     
 }

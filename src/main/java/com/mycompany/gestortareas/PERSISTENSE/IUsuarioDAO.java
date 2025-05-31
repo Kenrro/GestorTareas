@@ -12,9 +12,9 @@ import com.mycompany.gestortareas.LOGIC.Usuario;
  */
 public interface IUsuarioDAO {
     
-    public void crearUsuario(String nombre);
+    public boolean crearUsuario(String nombre);
     public Usuario leerUsuario(int id);
-    public void actualizarUsuario();
+    public boolean actualizarUsuario();
     public boolean eliminarUsuario(int id);
     
 }
