@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,15 +20,18 @@ import java.util.List;
 public class UsuarioDaoImplementSql implements IUsuarioDAO {
 
     @Override
-    public boolean crearUsuario(String nombre) {
+    public boolean crearUsuario(String nombre, String contraseña) {
         
-        String consulta = "Insert into usuarios(nombre) values (?)";
+        String consulta = "Insert into usuarios(nombre, contraseña) values (?, ?)";
         int afectado = 0;
         try (Connection con = conexion.getConnection();
             PreparedStatement pst = con.prepareStatement(consulta)){
             pst.setString(1, nombre);
+            pst.setString(2, contraseña);
             afectado = pst.executeUpdate();
-        } catch (SQLException e) {
+        }catch (SQLIntegrityConstraintViolationException se) {
+                System.out.println("Ese usuario ya existe");  
+        }catch (SQLException e) {
             e.printStackTrace();
         }
         return afectado == 1;
@@ -35,26 +39,54 @@ public class UsuarioDaoImplementSql implements IUsuarioDAO {
     }
 
     @Override
-    public Usuario leerUsuario(int id) {
+    public Usuario leerUsuario(String n, String contraseña) {
         
         // Convierte el resultado del resulset en una lista y la retorna.
-        String consulta = "SELECT * FROM usuarios WHERE id = ?";
+        String consulta = "SELECT * FROM usuarios WHERE id = ? and contraseña = ?";
         Usuario user = null;
-        try (Connection con = conexion.getConnection();
+        int id = buscarUsuario(n);
+        if(id > 0){
+            try (Connection con = conexion.getConnection();
             PreparedStatement pst = con.prepareStatement(consulta)){
             pst.setInt(1, id);
+            pst.setString(2, contraseña);
             ResultSet rss = pst.executeQuery();
             if(rss.next()){ // Si no hay resultado la lista quedara vicia
                 int id_usuario = rss.getInt("id");
                 String nombre = rss.getString("nombre");
                 user = new Usuario(id_usuario, nombre);
             }
+            else{
+                System.out.println("Usuario o contraseña incorrectos.");
+            }
             rss.close();
-        } catch(SQLException e){
-            e.printStackTrace();
+            }
+            catch(SQLException e){
+                e.printStackTrace();
+            } 
+            
         }
+        else {
+            System.out.println("Usuario no encontrado");
+        }
+        
         return user;
     }
+        private int buscarUsuario(String nombre){
+            // Busca coincidecias en los usuarios
+            String consulta = "SELECT id from usuarios where nombre = ?";
+            
+            try(Connection con = conexion.getConnection();
+                PreparedStatement pst = con.prepareStatement(consulta)){
+                pst.setString(1, nombre);
+                ResultSet rs = pst.executeQuery();
+                if(rs.next()) return rs.getInt("id");
+                
+            } catch (SQLException e){
+                e.printStackTrace();
+            }
+            return -1;
+        }
 
     @Override
     public boolean actualizarUsuario() {

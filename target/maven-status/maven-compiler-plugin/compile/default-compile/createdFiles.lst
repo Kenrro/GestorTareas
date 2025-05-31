@@ -1,8 +1,12 @@
+com\mycompany\gestortareas\IGU\Inicio$1.class
+com\mycompany\gestortareas\IGU\Inicio$2.class
 com\mycompany\gestortareas\LOGIC\Tarea.class
 com\mycompany\gestortareas\LOGIC\Usuario.class
 com\mycompany\gestortareas\GestorTareas.class
 com\mycompany\gestortareas\PERSISTENSE\ConexionMySql.class
 com\mycompany\gestortareas\PERSISTENSE\ITareaDAO.class
+com\mycompany\gestortareas\IGU\Inicio$3.class
+com\mycompany\gestortareas\IGU\Inicio.class
 com\mycompany\gestortareas\PERSISTENSE\IUsuarioDAO.class
 com\mycompany\gestortareas\PERSISTENSE\TareaDaoImplementSql.class
 com\mycompany\gestortareas\PERSISTENSE\UsuarioDaoImplementSql.class

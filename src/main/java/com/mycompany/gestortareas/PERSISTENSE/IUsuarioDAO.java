@@ -12,8 +12,8 @@ import com.mycompany.gestortareas.LOGIC.Usuario;
  */
 public interface IUsuarioDAO {
     
-    public boolean crearUsuario(String nombre);
-    public Usuario leerUsuario(int id);
+    public boolean crearUsuario(String nombre, String contraseña);
+    public Usuario leerUsuario(String id, String contraseña);
     public boolean actualizarUsuario();
     public boolean eliminarUsuario(int id);
     

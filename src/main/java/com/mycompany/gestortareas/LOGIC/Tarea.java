@@ -41,7 +41,7 @@ public class Tarea {
         this.descripcion = descripcion;
     }
 
-    public boolean isEstado() {
+    public boolean getEstado() {
         return estado;
     }
 

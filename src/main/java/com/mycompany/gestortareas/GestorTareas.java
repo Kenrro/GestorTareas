@@ -4,6 +4,7 @@
 
 package com.mycompany.gestortareas;
 
+import com.mycompany.gestortareas.IGU.Inicio;
 import com.mycompany.gestortareas.LOGIC.Tarea;
 import com.mycompany.gestortareas.LOGIC.Usuario;
 import com.mycompany.gestortareas.PERSISTENSE.ConexionMySql;
@@ -21,13 +22,15 @@ public class GestorTareas {
 
     public static void main(String[] args) {
         
-        IUsuarioDAO dao = new UsuarioDaoImplementSql();
-        //dao.crearUsuario("Kevin");
-        ITareaDAO daot = new TareaDaoImplementSql();
+        //IUsuarioDAO dao = new UsuarioDaoImplementSql();
+        //dao.crearUsuario("Victoria", "contraseñanuevape");
+        //ITareaDAO daot = new TareaDaoImplementSql();
+        Inicio init = new Inicio();
+        init.setVisible(true);
         //daot.crearTarea(2, "Miguel es una fufurufa");
-        Usuario user = dao.leerUsuario(2);
-        user.setTareas(daot.listarTarea(2));
-        if(user.getTareas().isEmpty()){
+        //Usuario user = dao.leerUsuario("Carlos");
+        //user.setTareas(daot.listarTarea(2));
+        /*if(user.getTareas().isEmpty()){
             System.out.println("Sin tareas");
         }else{
             for(Tarea t : user.getTareas()){
@@ -36,7 +39,7 @@ public class GestorTareas {
         }
         
         daot.actualizarTarea(15);
-        
+        */
         
     }
 }
