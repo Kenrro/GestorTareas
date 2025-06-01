@@ -25,17 +25,51 @@ public class Inicio extends javax.swing.JFrame {
         panelCargar.setVisible(false);
         panelCrear.setVisible(false);
         panelVacio.setVisible(true);
+        panelSinTareas.setVisible(false);
     }
     public void cargarTareasUsuario(int id) {
         usuario.setTareas(daot.listarTarea(id));
-        panelCargar.setVisible(true);
-        iniciarTarea();
+        if (usuario!=null) {
+            if (usuario.getTareas().size() != 0) {
+                activarPanel("ver");
+            iniciarTarea();   
+            } else{
+                activarPanel("vacio");
+            }
+        }
+        else{
+            activarPanel("negro");
+            
+        }
         
     }
     public void iniciarTarea(){
         Tdescripcion.setText(usuario.getTareas().get(contador).getDescripcion());
         Testado.setText(String.valueOf(usuario.getTareas().get(contador).getEstado()));
         
+    }
+    
+    public void activarPanel(String nombre){
+        panelCargar.setVisible(false);
+        panelCrear.setVisible(false);
+        panelVacio.setVisible(false);
+        panelSinTareas.setVisible(false);
+        
+        switch (nombre) {
+            case "crear" -> {
+                panelCrear.setVisible(true);
+            }
+            case "ver" -> {
+                panelCargar.setVisible(true);
+            }
+            case "vacio" -> {
+                panelSinTareas.setVisible(true);
+            }
+            case "negro" -> {
+                panelVacio.setVisible(true);
+            }
+            default -> throw new AssertionError();
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,6 +91,8 @@ public class Inicio extends javax.swing.JFrame {
         BverTareas = new javax.swing.JButton();
         BcrearTarea = new javax.swing.JButton();
         panelTarjeta = new javax.swing.JPanel();
+        panelSinTareas = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         panelCrear = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TcrearTarea = new javax.swing.JTextArea();
@@ -69,6 +105,7 @@ public class Inicio extends javax.swing.JFrame {
         BotonTareaAnterior = new javax.swing.JButton();
         BotonTareaSiguiente = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         panelVacio = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -92,6 +129,11 @@ public class Inicio extends javax.swing.JFrame {
         BverTareas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 BverTareasMousePressed(evt);
+            }
+        });
+        BverTareas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BverTareasActionPerformed(evt);
             }
         });
 
@@ -150,6 +192,31 @@ public class Inicio extends javax.swing.JFrame {
 
         panelTarjeta.setBackground(new java.awt.Color(51, 51, 255));
         panelTarjeta.setLayout(new java.awt.CardLayout());
+
+        panelSinTareas.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 2, 48)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Sin tareas");
+
+        javax.swing.GroupLayout panelSinTareasLayout = new javax.swing.GroupLayout(panelSinTareas);
+        panelSinTareas.setLayout(panelSinTareasLayout);
+        panelSinTareasLayout.setHorizontalGroup(
+            panelSinTareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSinTareasLayout.createSequentialGroup()
+                .addContainerGap(230, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(239, 239, 239))
+        );
+        panelSinTareasLayout.setVerticalGroup(
+            panelSinTareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSinTareasLayout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addComponent(jLabel4)
+                .addContainerGap(189, Short.MAX_VALUE))
+        );
+
+        panelTarjeta.add(panelSinTareas, "card5");
 
         panelCrear.setBackground(new java.awt.Color(255, 51, 51));
 
@@ -224,41 +291,52 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Eliminar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton2MousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelCargarLayout = new javax.swing.GroupLayout(panelCargar);
         panelCargar.setLayout(panelCargarLayout);
         panelCargarLayout.setHorizontalGroup(
             panelCargarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCargarLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
                 .addGroup(panelCargarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelCargarLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40))
                     .addGroup(panelCargarLayout.createSequentialGroup()
-                        .addGap(125, 125, 125)
                         .addComponent(BotonTareaAnterior)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(panelCargarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelCargarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BotonTareaSiguiente)
-                    .addComponent(Testado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Testado))
                 .addContainerGap(154, Short.MAX_VALUE))
         );
         panelCargarLayout.setVerticalGroup(
             panelCargarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCargarLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
                 .addGroup(panelCargarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCargarLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelCargarLayout.createSequentialGroup()
+                        .addGap(84, 84, 84)
                         .addComponent(Testado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57)
+                        .addGap(28, 28, 28)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)))
+                .addGap(47, 47, 47)
                 .addGroup(panelCargarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonTareaAnterior)
                     .addComponent(BotonTareaSiguiente))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         panelTarjeta.add(panelCargar, "card2");
@@ -349,18 +427,36 @@ public class Inicio extends javax.swing.JFrame {
 
     private void BverTareasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BverTareasMousePressed
         if (usuario!=null) {
-            panelCargar.setVisible(true);
-        panelCrear.setVisible(false);
+            activarPanel("ver");
         cargarTareasUsuario(usuario.getId());
         }
     }//GEN-LAST:event_BverTareasMousePressed
 
     private void BcrearTareaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BcrearTareaMousePressed
         if (usuario!=null) {
-            panelCargar.setVisible(false);
-            panelCrear.setVisible(true);
+            activarPanel("crear");
         }
     }//GEN-LAST:event_BcrearTareaMousePressed
+
+    private void BverTareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BverTareasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BverTareasActionPerformed
+
+    private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
+        int seleccion = JOptionPane.showOptionDialog(
+                                                    null,
+                                                    "¿Desea eliminar la tarea?",
+                                                    "Selector de opciones",
+                                                    JOptionPane.YES_NO_CANCEL_OPTION,
+                                                    JOptionPane.QUESTION_MESSAGE,
+                                                    null,
+                                                    new Object[] { "Aceptar", "Cancelar" },
+                                                    null);
+        if (seleccion==0) {
+            daot.eliminarTarea(usuario.getTareas().get(contador).getId());
+            cargarTareasUsuario(usuario.getId());
+        }
+    }//GEN-LAST:event_jButton2MousePressed
 
     /**
      * @param args the command line arguments
@@ -386,15 +482,18 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JTextField Testado;
     private javax.swing.JTextField Tnombre;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel panelCargar;
     private javax.swing.JPanel panelCrear;
     private javax.swing.JPanel panelPrincipal;
+    private javax.swing.JPanel panelSinTareas;
     private javax.swing.JPanel panelTarjeta;
     private javax.swing.JPanel panelVacio;
     // End of variables declaration//GEN-END:variables
