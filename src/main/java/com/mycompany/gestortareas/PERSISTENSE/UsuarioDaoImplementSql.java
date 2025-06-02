@@ -44,7 +44,7 @@ public class UsuarioDaoImplementSql implements IUsuarioDAO {
         // Convierte el resultado del resulset en una lista y la retorna.
         String consulta = "SELECT * FROM usuarios WHERE id = ? and contraseña = ?";
         Usuario user = null;
-        int id = buscarUsuario(n);
+        int id = buscarUsuario(n, contraseña);
         if(id > 0){
             try (Connection con = conexion.getConnection();
             PreparedStatement pst = con.prepareStatement(consulta)){
@@ -72,13 +72,14 @@ public class UsuarioDaoImplementSql implements IUsuarioDAO {
         
         return user;
     }
-        private int buscarUsuario(String nombre){
+        private int buscarUsuario(String nombre, String contraseña){
             // Busca coincidecias en los usuarios
-            String consulta = "SELECT id from usuarios where nombre = ?";
+            String consulta = "SELECT id from usuarios where nombre = ? and contraseña = ?";
             
             try(Connection con = conexion.getConnection();
                 PreparedStatement pst = con.prepareStatement(consulta)){
                 pst.setString(1, nombre);
+                pst.setString(2, contraseña);
                 ResultSet rs = pst.executeQuery();
                 if(rs.next()) return rs.getInt("id");
                 
@@ -94,18 +95,28 @@ public class UsuarioDaoImplementSql implements IUsuarioDAO {
     }
 
     @Override
-    public boolean eliminarUsuario(int id) {
+    public boolean eliminarUsuario(String nombre, String contraseña) {
         // ELimina al usuario con su id, true si elimina false si no
         String consulta = "delete from usuarios where id = ?";
+        int id = buscarUsuario(nombre, contraseña);
         int resultado = 0;
-        try(Connection con = conexion.getConnection();
-            PreparedStatement pst = con.prepareStatement(consulta)){
-            pst.setInt(1, id);
-            resultado = pst.executeUpdate();
-        } catch(SQLException e){
-            e.printStackTrace();
+        if (id >= 0) {
+            eliminarTareas(id);
+            try(Connection con = conexion.getConnection();
+                PreparedStatement pst = con.prepareStatement(consulta)){
+                pst.setInt(1, id);
+                resultado = pst.executeUpdate();
+            } catch(SQLException e){
+                e.printStackTrace();
+            }
         }
         return resultado == 1; // Si resultado igual a 1 true si no false
+        
     }
+        private void eliminarTareas(int id_usuario){
+            // Elimina todas las tareas de este usuario
+            ITareaDAO daot = new TareaDaoImplementSql();
+            daot.eliminarTareas(id_usuario);
+        }
     ConexionMySql conexion = new ConexionMySql();
 }

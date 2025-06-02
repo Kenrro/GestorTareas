@@ -15,6 +15,6 @@ public interface IUsuarioDAO {
     public boolean crearUsuario(String nombre, String contraseña);
     public Usuario leerUsuario(String id, String contraseña);
     public boolean actualizarUsuario();
-    public boolean eliminarUsuario(int id);
+    public boolean eliminarUsuario(String nombre, String contraseña);
     
 }

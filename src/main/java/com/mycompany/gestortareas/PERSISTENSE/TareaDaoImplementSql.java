@@ -73,6 +73,18 @@ public class TareaDaoImplementSql implements ITareaDAO{
         }
         return rs == 1; // Si rs 1 retorna true si no false
     }
+    public void eliminarTareas(int id_usuario) {
+        // Elimina todas las tareas de un usuario especifico
+        String consulta = "delete from Tareas where id_usuario = ?";
+        int rs = 0;
+        try(Connection con = conexion.getConnection();
+            PreparedStatement pst = con.prepareStatement(consulta)){
+            pst.setInt(1, id_usuario);
+            rs = pst.executeUpdate();
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public boolean actualizarTarea(int id) {

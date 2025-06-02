@@ -17,5 +17,7 @@ public interface ITareaDAO {
     public List<Tarea> listarTarea(int id_usuario);
     public boolean eliminarTarea(int id);
     public boolean actualizarTarea(int id);
+
+    public void eliminarTareas(int id_usuario);
     
 }
